@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
+import ConfigureAmplifyClientSide from "./utils/ConfigureAmplifyClientSide";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,6 +20,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.className} bg-slate-100`} suppressHydrationWarning={true}>
         <Navbar></Navbar>
+        <ConfigureAmplifyClientSide />
         {children}
       </body>
     </html>

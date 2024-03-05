@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-blogappnext-dev-120612-authRole",
+      "UnauthRoleArn": "arn:aws:iam::678306532042:role/amplify-blogappnext-dev-120612-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::678306532042:role/amplify-blogappnext-dev-120612-authRole",
+      "Region": "eu-north-1",
+      "DeploymentBucketName": "amplify-blogappnext-dev-120612-deployment",
+      "UnauthRoleName": "amplify-blogappnext-dev-120612-unauthRole",
+      "StackName": "amplify-blogappnext-dev-120612",
+      "StackId": "arn:aws:cloudformation:eu-north-1:678306532042:stack/amplify-blogappnext-dev-120612/7b5cdad0-dab6-11ee-9578-0ac93fbb52ff",
+      "AmplifyAppId": "d3963dtvz315du"
+    },
+    "categories": {
+      "api": {
+        "blogappnext": {}
+      }
+    }
+  }
+}

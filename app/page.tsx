@@ -2,22 +2,16 @@ import getPosts from "@/lib/getPosts";
 import Link from "next/link";
 import { Suspense } from "react";
 import Comments from "./components/Comments";
+import { PostObj } from "@/types/types";
 
 export default async function Home() {
-  interface postObj {
-    userId: number;
-    id: number;
-    title: string;
-    body: string;
-  }
-
   const posts = await getPosts();
   
   return (
     <main className="container mx-auto mb-10">
       <h1 className="text-3xl text-center font-semibold mt-10 mb-6">All Posts</h1>
       {
-        posts.map((post: postObj) => <div key={post.id} className="border-b border-gray-300 pt-10 pb-4">
+        posts.map((post: PostObj) => <div key={post.id} className="border-b border-gray-300 pt-10 pb-4">
           <Link 
             href={`/posts/${post.id}`}
           >
