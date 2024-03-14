@@ -5,6 +5,7 @@ import { listPosts } from '@/src/graphql/queries';
 import { MyPost } from '@/types/types';
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react';
+import { deletePost } from '@/src/graphql/mutations';
 
 const client = generateClient();
 
@@ -12,7 +13,7 @@ export default function page() {
   const [posts, setPosts] = useState<MyPost[]>([]);
   useEffect(() => {
     fetchPosts()
-  }, [])
+  }, [posts])
 
   const fetchPosts = async() => {
     try {
@@ -23,6 +24,21 @@ export default function page() {
       setPosts(postsData.data.listPosts.items)
     } catch (error) {
       console.log("🚀 ~ fetchPosts ~ error:", error)
+    }
+  }
+
+  const handleDeletePost = async(id:string) => {
+    try {
+      const postDetails = {
+        id: id
+      };
+      await client.graphql({
+        query: deletePost,
+        variables: { input: postDetails },
+        authMode: 'userPool'
+      })
+    } catch (error) {
+      console.log("🚀 ~ handleDeletePost ~ error:", error)
     }
   }
   
@@ -37,7 +53,7 @@ export default function page() {
           <div className='flex gap-3 mt-3'>
             <button className='text-sm font-semibold rounded-full px-3 py-1 bg-blue-300 hover:bg-blue-400 text-white'><Link href={`/myPost/${post.id}`}>View</Link></button>
             <button className='text-sm font-semibold rounded-full px-3 py-1 bg-orange-300 hover:bg-orange-400 text-white'><Link href={`/editPost/${post.id}`}>Edit</Link></button>
-            <button className='text-sm font-semibold rounded-full px-3 py-1 bg-red-300 hover:bg-red-400 text-white'>Delete</button>
+            <button onClick={() => handleDeletePost(post.id)} className='text-sm font-semibold rounded-full px-3 py-1 bg-red-300 hover:bg-red-400 text-white'>Delete</button>
           </div>
         </div>)
       } 

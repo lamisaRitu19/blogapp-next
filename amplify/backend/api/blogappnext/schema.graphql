@@ -6,7 +6,7 @@ type Post @model
 @auth(
   rules: [
     { allow: public, operations: [read] }, 
-    { allow: owner }
+    { allow: owner, ownerField: "username" }
   ]
 ) {
   id: ID!

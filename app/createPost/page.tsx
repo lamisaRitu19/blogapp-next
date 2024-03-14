@@ -15,10 +15,6 @@ export default function page() {
   const [post, setPost] = useState(initialState);
   const { title, content } = post;
   const router = useRouter();
-  
-  useEffect(() => {
-    console.log(post)
-  }, [post])
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPost(() => ({
@@ -39,7 +35,7 @@ export default function page() {
         authMode: 'userPool'
       })
       router.push('/myPost')
-      console.log("🚀 ~ handleCreatePost ~ post:", post)
+      // console.log("🚀 ~ handleCreatePost ~ post:", post)
     } catch (error) {
       console.log("🚀 ~ handleCreatePost ~ error:", error) 
     }

@@ -18,14 +18,14 @@ export interface MyPost {
 //     __typename?: string | null | undefined;
 // }
 export interface FetchedPost {
-    __typename: "Post";
+
     id: string;
-    title: string;
-    content: string;
-    username?: string | null | undefined;
-    coverImage?: string | null | undefined;
-    createdAt: string;
-    updatedAt: string;
+    title?:  string | null | undefined;
+    content?:  string | null | undefined;
+    username?:  string | null | undefined ;
+    coverImage?:  string | null | undefined ;
+    createdAt?:  string | null | undefined;
+    updatedAt?:  string | null | undefined;
     owner?: string | null | undefined;
 }
 
