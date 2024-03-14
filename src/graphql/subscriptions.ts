@@ -8,19 +8,94 @@ type GeneratedSubscription<InputType, OutputType> = string & {
   __generatedSubscriptionOutput: OutputType;
 };
 
+export const onCreateComment = /* GraphQL */ `subscription OnCreateComment($filter: ModelSubscriptionCommentFilterInput) {
+  onCreateComment(filter: $filter) {
+    id
+    description
+    post {
+      id
+      title
+      content
+      username
+      coverImage
+      createdAt
+      updatedAt
+      __typename
+    }
+    postId
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnCreateCommentSubscriptionVariables,
+  APITypes.OnCreateCommentSubscription
+>;
+export const onUpdateComment = /* GraphQL */ `subscription OnUpdateComment($filter: ModelSubscriptionCommentFilterInput) {
+  onUpdateComment(filter: $filter) {
+    id
+    description
+    post {
+      id
+      title
+      content
+      username
+      coverImage
+      createdAt
+      updatedAt
+      __typename
+    }
+    postId
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnUpdateCommentSubscriptionVariables,
+  APITypes.OnUpdateCommentSubscription
+>;
+export const onDeleteComment = /* GraphQL */ `subscription OnDeleteComment($filter: ModelSubscriptionCommentFilterInput) {
+  onDeleteComment(filter: $filter) {
+    id
+    description
+    post {
+      id
+      title
+      content
+      username
+      coverImage
+      createdAt
+      updatedAt
+      __typename
+    }
+    postId
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnDeleteCommentSubscriptionVariables,
+  APITypes.OnDeleteCommentSubscription
+>;
 export const onCreatePost = /* GraphQL */ `subscription OnCreatePost(
   $filter: ModelSubscriptionPostFilterInput
-  $owner: String
+  $username: String
 ) {
-  onCreatePost(filter: $filter, owner: $owner) {
+  onCreatePost(filter: $filter, username: $username) {
     id
     title
     content
     username
     coverImage
+    comments {
+      nextToken
+      __typename
+    }
     createdAt
     updatedAt
-    owner
     __typename
   }
 }
@@ -30,17 +105,20 @@ export const onCreatePost = /* GraphQL */ `subscription OnCreatePost(
 >;
 export const onUpdatePost = /* GraphQL */ `subscription OnUpdatePost(
   $filter: ModelSubscriptionPostFilterInput
-  $owner: String
+  $username: String
 ) {
-  onUpdatePost(filter: $filter, owner: $owner) {
+  onUpdatePost(filter: $filter, username: $username) {
     id
     title
     content
     username
     coverImage
+    comments {
+      nextToken
+      __typename
+    }
     createdAt
     updatedAt
-    owner
     __typename
   }
 }
@@ -50,17 +128,20 @@ export const onUpdatePost = /* GraphQL */ `subscription OnUpdatePost(
 >;
 export const onDeletePost = /* GraphQL */ `subscription OnDeletePost(
   $filter: ModelSubscriptionPostFilterInput
-  $owner: String
+  $username: String
 ) {
-  onDeletePost(filter: $filter, owner: $owner) {
+  onDeletePost(filter: $filter, username: $username) {
     id
     title
     content
     username
     coverImage
+    comments {
+      nextToken
+      __typename
+    }
     createdAt
     updatedAt
-    owner
     __typename
   }
 }

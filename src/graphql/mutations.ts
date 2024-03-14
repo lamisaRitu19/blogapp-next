@@ -8,6 +8,87 @@ type GeneratedMutation<InputType, OutputType> = string & {
   __generatedMutationOutput: OutputType;
 };
 
+export const createComment = /* GraphQL */ `mutation CreateComment(
+  $input: CreateCommentInput!
+  $condition: ModelCommentConditionInput
+) {
+  createComment(input: $input, condition: $condition) {
+    id
+    description
+    post {
+      id
+      title
+      content
+      username
+      coverImage
+      createdAt
+      updatedAt
+      __typename
+    }
+    postId
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.CreateCommentMutationVariables,
+  APITypes.CreateCommentMutation
+>;
+export const updateComment = /* GraphQL */ `mutation UpdateComment(
+  $input: UpdateCommentInput!
+  $condition: ModelCommentConditionInput
+) {
+  updateComment(input: $input, condition: $condition) {
+    id
+    description
+    post {
+      id
+      title
+      content
+      username
+      coverImage
+      createdAt
+      updatedAt
+      __typename
+    }
+    postId
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.UpdateCommentMutationVariables,
+  APITypes.UpdateCommentMutation
+>;
+export const deleteComment = /* GraphQL */ `mutation DeleteComment(
+  $input: DeleteCommentInput!
+  $condition: ModelCommentConditionInput
+) {
+  deleteComment(input: $input, condition: $condition) {
+    id
+    description
+    post {
+      id
+      title
+      content
+      username
+      coverImage
+      createdAt
+      updatedAt
+      __typename
+    }
+    postId
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.DeleteCommentMutationVariables,
+  APITypes.DeleteCommentMutation
+>;
 export const createPost = /* GraphQL */ `mutation CreatePost(
   $input: CreatePostInput!
   $condition: ModelPostConditionInput
@@ -18,9 +99,12 @@ export const createPost = /* GraphQL */ `mutation CreatePost(
     content
     username
     coverImage
+    comments {
+      nextToken
+      __typename
+    }
     createdAt
     updatedAt
-    owner
     __typename
   }
 }
@@ -38,9 +122,12 @@ export const updatePost = /* GraphQL */ `mutation UpdatePost(
     content
     username
     coverImage
+    comments {
+      nextToken
+      __typename
+    }
     createdAt
     updatedAt
-    owner
     __typename
   }
 }
@@ -58,9 +145,12 @@ export const deletePost = /* GraphQL */ `mutation DeletePost(
     content
     username
     coverImage
+    comments {
+      nextToken
+      __typename
+    }
     createdAt
     updatedAt
-    owner
     __typename
   }
 }
