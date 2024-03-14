@@ -17,6 +17,7 @@ export const getPost = /* GraphQL */ `query GetPost($id: ID!) {
     coverImage
     createdAt
     updatedAt
+    owner
     __typename
   }
 }
@@ -35,6 +36,7 @@ export const listPosts = /* GraphQL */ `query ListPosts(
       coverImage
       createdAt
       updatedAt
+      owner
       __typename
     }
     nextToken
@@ -64,6 +66,7 @@ export const postsByUsername = /* GraphQL */ `query PostsByUsername(
       coverImage
       createdAt
       updatedAt
+      owner
       __typename
     }
     nextToken

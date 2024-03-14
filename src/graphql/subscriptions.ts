@@ -8,8 +8,11 @@ type GeneratedSubscription<InputType, OutputType> = string & {
   __generatedSubscriptionOutput: OutputType;
 };
 
-export const onCreatePost = /* GraphQL */ `subscription OnCreatePost($filter: ModelSubscriptionPostFilterInput) {
-  onCreatePost(filter: $filter) {
+export const onCreatePost = /* GraphQL */ `subscription OnCreatePost(
+  $filter: ModelSubscriptionPostFilterInput
+  $owner: String
+) {
+  onCreatePost(filter: $filter, owner: $owner) {
     id
     title
     content
@@ -17,6 +20,7 @@ export const onCreatePost = /* GraphQL */ `subscription OnCreatePost($filter: Mo
     coverImage
     createdAt
     updatedAt
+    owner
     __typename
   }
 }
@@ -24,8 +28,11 @@ export const onCreatePost = /* GraphQL */ `subscription OnCreatePost($filter: Mo
   APITypes.OnCreatePostSubscriptionVariables,
   APITypes.OnCreatePostSubscription
 >;
-export const onUpdatePost = /* GraphQL */ `subscription OnUpdatePost($filter: ModelSubscriptionPostFilterInput) {
-  onUpdatePost(filter: $filter) {
+export const onUpdatePost = /* GraphQL */ `subscription OnUpdatePost(
+  $filter: ModelSubscriptionPostFilterInput
+  $owner: String
+) {
+  onUpdatePost(filter: $filter, owner: $owner) {
     id
     title
     content
@@ -33,6 +40,7 @@ export const onUpdatePost = /* GraphQL */ `subscription OnUpdatePost($filter: Mo
     coverImage
     createdAt
     updatedAt
+    owner
     __typename
   }
 }
@@ -40,8 +48,11 @@ export const onUpdatePost = /* GraphQL */ `subscription OnUpdatePost($filter: Mo
   APITypes.OnUpdatePostSubscriptionVariables,
   APITypes.OnUpdatePostSubscription
 >;
-export const onDeletePost = /* GraphQL */ `subscription OnDeletePost($filter: ModelSubscriptionPostFilterInput) {
-  onDeletePost(filter: $filter) {
+export const onDeletePost = /* GraphQL */ `subscription OnDeletePost(
+  $filter: ModelSubscriptionPostFilterInput
+  $owner: String
+) {
+  onDeletePost(filter: $filter, owner: $owner) {
     id
     title
     content
@@ -49,6 +60,7 @@ export const onDeletePost = /* GraphQL */ `subscription OnDeletePost($filter: Mo
     coverImage
     createdAt
     updatedAt
+    owner
     __typename
   }
 }

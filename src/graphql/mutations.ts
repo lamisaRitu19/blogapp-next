@@ -20,6 +20,7 @@ export const createPost = /* GraphQL */ `mutation CreatePost(
     coverImage
     createdAt
     updatedAt
+    owner
     __typename
   }
 }
@@ -39,6 +40,7 @@ export const updatePost = /* GraphQL */ `mutation UpdatePost(
     coverImage
     createdAt
     updatedAt
+    owner
     __typename
   }
 }
@@ -58,6 +60,7 @@ export const deletePost = /* GraphQL */ `mutation DeletePost(
     coverImage
     createdAt
     updatedAt
+    owner
     __typename
   }
 }

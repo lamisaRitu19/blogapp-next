@@ -6,6 +6,29 @@ export interface MyPost {
     coverImage?: string | null | undefined;
 }
 
+// export interface FetchedPost {
+//     id: string;
+//     title: string;
+//     content: string;
+//     username?: string | null | undefined;
+//     coverImage?: string | null | undefined;
+//     owner?: string | null | undefined;
+//     createdAt?: string | null | undefined;
+//     updatedAt?: string | null | undefined;
+//     __typename?: string | null | undefined;
+// }
+export interface FetchedPost {
+    __typename: "Post";
+    id: string;
+    title: string;
+    content: string;
+    username?: string | null | undefined;
+    coverImage?: string | null | undefined;
+    createdAt: string;
+    updatedAt: string;
+    owner?: string | null | undefined;
+}
+
 export interface PostObj {
     userId: number;
     id: number;
